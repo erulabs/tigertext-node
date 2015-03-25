@@ -1,19 +1,21 @@
-var conf = require('./conf/config.js'),
-    request = require('request'),
-    EventSource = require('eventsource'),
+var EventSource = require('eventsource'),
     fs = require('fs');
-    
-var btoa = function(str) {
-  return new Buffer(str).toString('base64');
-}
 
 var initializer = function(apiKey, apiSecret) {
   
   var client = this;
   
-  client.es = new EventSource(conf['api-endpoint'] + '/' + conf['api-version'] + '/events', {
+  client.conf = require('./conf/config.js');
+  client.apiKey = apiKey;
+  client.apiSecret = apiSecret;
+  
+  client.btoa = function(str) {
+    return new Buffer(str).toString('base64');
+  }
+  
+  client.es = new EventSource(client.conf['api-endpoint'] + '/' + client.conf['api-version'] + '/events', {
     headers: {
-      'Authorization': 'Basic ' + btoa(apiKey + ':' + apiSecret)
+      'Authorization': 'Basic ' + client.btoa(client.apiKey + ':' + client.apiSecret)
     }
   });
   
