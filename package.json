@@ -1,0 +1,23 @@
+{
+  "name": "tigertext",
+  "version": "0.1.0",
+  "description": "A library for using TigerText via TigerConnecft APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tigertext/tigertext-node.git"
+  },
+  "author": "Danny Hakim <danny@tigertext.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tigertext/tigertext-node/issues"
+  },
+  "homepage": "https://github.com/tigertext/tigertext-node",
+  "dependencies": {
+    "eventsource": "^0.1.6",
+    "request": "^2.54.0"
+  }
+}
