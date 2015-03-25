@@ -15,13 +15,10 @@ var initializer = function(apiKey, apiSecret) {
   
   client.es = new EventSource(client.conf['api-endpoint'] + '/' + client.conf['api-version'] + '/events', {
     headers: {
-      'Authorization': 'Basic ' + client.btoa(client.apiKey + ':' + client.apiSecret)
+      'Authorization': 'Basic ' + client.btoa(client.apiKey + ':' + client.apiSecret),
+      'TT-X-Features': 'is-typing'
     }
   });
-  
-  client.es.onmessage = function(e) {
-    // console.log(e);
-  }
   
   client.es.onerror = function(e) {
     // TigerConnect SSE socket times out every 7 minutes
