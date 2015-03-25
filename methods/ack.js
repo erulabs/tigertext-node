@@ -16,9 +16,13 @@ module.exports = function(client) {
       if (err) {
         onReady(err);
       } else if (resp.statusCode !== 204) {
-        onReady({
-          error: {status: resp.statusCode}
-        });
+        if (body) {
+          onReady(body);
+        } else {
+          onReady({
+            error: {status: resp.statusCode}
+          });
+        }
       } else {
         onReady(null);
       }
