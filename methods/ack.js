@@ -1,14 +1,14 @@
 module.exports = function(client) {
   
-  return function(messages, onReady) {
+  return function(ids, onReady) {
     
-    if (typeof messages === 'string') {messages = [messages]};
+    if (typeof ids === 'string') {ids = [ids]};
     var uri = client.conf['api-endpoint'] + '/' + client.conf['api-version'] + '/events/ack';
     
     require('request')({
       uri: uri,
       method: 'POST',
-      json: {events: messages},
+      json: {events: ids},
       headers: {
         'Authorization': 'Basic ' + client.btoa(client.apiKey + ':' + client.apiSecret)
       }
