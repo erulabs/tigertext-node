@@ -10,7 +10,7 @@ npm install tigertext
 Use your TigerConnect API credentials to instantiate a new session and listen for events:
 
 ```javascript
-var TigerText = require('tigertext')('Ns0XjKlD5PDpA2XTh8SEKJf0K0ZwnPyd', 'KkpNLfno2XoqSQ5J6POALIeZn7AClc5vOEsQ1GUPl2nl0Z7s');
+var TigerText = require('tigertext')('API_KEY', 'API_SECRET');
 
 // listen for messages
 TigerText.on('message', function(message, eventID) {
